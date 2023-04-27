@@ -1,0 +1,70 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Users</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body class="container" style="margin-top: 50px;">
+    <% if (messages.success) { %>
+        <div class="alert alert-success" role="alert"><%- messages.success %></div>
+        <% } %>
+
+            <% if (messages.error) { %>
+                <div class="alert alert-danger" role="alert"><%- messages.error %></div>
+                <% } %>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <ul class="nav nav-pills w-100">
+                                <li class="nav-pill active">
+                                    <a class="nav-link">Dogs</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <% if(data.length) { %>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Owner ID</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Breed</th>
+                                            <th scope="col">Notes</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% for(var i=0; i< data.length; i++) { %>
+                                            <tr>
+                                                <td>
+                                                    <%= data[i].dog_id%>
+                                                </td>
+                                                <td>
+                                                    <%= data[i].owner_id%>
+                                                </td>
+                                                <td>
+                                                    <%= data[i].dog_name%>
+                                                </td>
+                                                <td>
+                                                    <%= data[i].dog_breed%>
+                                                </td>
+                                                <td>
+                                                    <%= data[i].dog_notes%>
+                                                </td>
+                                            </tr>
+                                            <% } %>
+                                    </tbody>
+                                </table>
+                                <% } %>
+                                    <!-- if result is empty -->
+                                    <% if(!data.length) { %>
+                                        <p class="text-center">No users found!</p>
+                                        <% } %>
+                        </div>
+                    </div>
+</body>
+
+</html>
